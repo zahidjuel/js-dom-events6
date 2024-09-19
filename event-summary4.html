@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Summary</title>
+</head>
+
+<body>
+    <h1>Final Event DOM handlers</h1>
+    <!-- option 1 -->
+    <h3 id="handler-status">Default Text</h3>
+    <p id="input-text-display">default input text</p>
+    <input type="text" name="" id="input-field">
+    <button id="btn-update">Update</button>
+    <br>
+    <br>
+    <button onclick="handleOnclick()">handle event by add onclick function</button>
+    <!-- option 2 -->
+    <button id="event-listener">handle event by addEventListener</button>
+
+    <script>
+        // option: 1
+        function handleOnclick() {
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'handled by functon attached on onclick attribute';
+        }
+        // option: 2
+        document.getElementById('event-listener').addEventListener('click', function () {
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'text updated by addEventListener button';
+        })
+        // option: 2 recap
+        document.getElementById('btn-update').addEventListener('click', function () {
+            const inputField = document.getElementById('input-field');
+            // console.log(inputField.value);
+            const inputText = document.getElementById('input-text-display');
+            inputText.innerText = inputField.value;
+            inputField.value = '';
+        })
+    </script>
+</body>
+
+</html>

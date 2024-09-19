@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Events</title>
+</head>
+<body>
+    <h1>Explore More Events</h1>
+    <button id="btn-click">Click Button</button>
+    <button id="btn-mouse-enter">mouse Enter Button</button>
+    <button id="btn-mouse-move">mouse move Button</button>
+    <br>
+    <br>
+    <input type="text" name="" id="input-field">
+    <input type="text" name="" id="input-text">
+
+    <br>
+    <br>
+    <input type="text" name="" id="key-down">
+    <br>
+    <br>
+    <!-- create a comment box; -->
+    <p id="default-text">Default Text</p>
+    <textarea name="" id="text-field2" cols="30" rows="5"></textarea>
+    <button id="btn-post">Post</button>
+    <script>
+        document.getElementById('btn-click').addEventListener('click', function(){
+            console.log('Event click button');
+        })
+        document.getElementById('btn-mouse-enter').addEventListener('mouseenter', function(){
+            console.log('Event mouseenter button');
+        })
+        document.getElementById('btn-mouse-move').addEventListener('mousemove', function(){
+            console.log('Event mousemove button');
+        })
+
+        document.getElementById('input-field').addEventListener('focus', function(){
+            console.log('Event triggerd inside the input field');
+        })
+        document.getElementById('input-text').addEventListener('blur', function(){
+            console.log('Event triggerd inside the input field blur');
+        })
+
+       /*  document.getElementById('key-down').addEventListener('keydown', function(event){
+            console.log(event.target.value);
+        }) */
+       /*  document.getElementById('key-down').addEventListener('keypress', function(event){
+            console.log(event.target.value);
+        }) */
+        document.getElementById('key-down').addEventListener('keyup', function(event){
+            console.log(event.target.value);
+        })
+
+        // create a comment box;
+        document.getElementById('btn-post').addEventListener('click', function () {
+            // console.log('Bangladesh');
+            const textField2 = document.getElementById('text-field2');
+            // console.log(textField2.value);
+            document.getElementById('default-text').innerText = textField2.value;
+            textField2.value = '';
+        })
+    </script>
+</body>
+</html>
